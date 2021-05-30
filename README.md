@@ -17,3 +17,13 @@ a training table or uploading the training table from his/her machine. It uses s
 >
 >DE: Diese Arbeit wurde im Rahmen meine Bacheloararbeit (Wintersemester 2020) unter der Leitung von Prof. Dr. Gerhard Brewka an der Universität Leipzig realisiert.
 ___
+
+#### Use
+
+`git clone https://github.com/Nicolas-le/argumentRetrieval.git`
+
+`cd argumentRetrieval`
+
+`pip3 install -r requirements.txt`
+
+`python3 main.py --i <source> --o <output-file>`
