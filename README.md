@@ -20,10 +20,10 @@ ___
 
 #### Use
 
-`git clone https://github.com/Nicolas-le/argumentRetrieval.git`
+`git clone https://github.com/Abdulnaser98/conceptLearning`
 
-`cd argumentRetrieval`
+`cd finalImp`
 
-`pip3 install -r requirements.txt`
+`click on the index.html`
 
-`python3 main.py --i <source> --o <output-file>`
+
