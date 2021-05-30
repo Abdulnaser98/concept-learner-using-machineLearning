@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+   <meta charset="utf-8" />
+   
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">	 
+	
+   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+   
+  
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+   <link rel="stylesheet" href="../css/versionspacewithoutCSV.css">
+	
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
+	
+  
+</head>
+
+
+<body>
+
+
+
+
+<!--The start of the nav bar-->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">  
+	
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+	
+        <span class="navbar-toggler-icon"></span>
+		
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+	
+        <ul class="navbar-nav"> <!--Start of the nav bar list-->
+		
+            <li class="nav-item">
+			 
+                <a class="nav-link" href="pdfViewer/pdfViewerHtml.html">Version space</a>
+			  
+            </li>
+			
+            <li class="nav-item">
+			
+                <a class="nav-link" href="#">About</a>
+			  
+            </li>
+			
+			
+            <li class="nav-item">
+			
+                <a class="nav-link" href="#">Help</a>
+			   
+            </li>
+			
+			<li class="nav-item">
+			
+                <a class="nav-link" href="Figurespsge/gallery.html">Gallery</a>
+			   
+            </li>
+			
+			<li class="nav-item">
+			
+                <a class="nav-link" href="#">Contact</a>
+			   
+            </li>
+			
+        </ul><!--End of the navbar list-->
+		
+    </div>
+	
+</nav><!--End of the navbar-->
+
+
+
+
+
+
+<div class = "row">
+
+ 	<div class="col-lg-12 hidden-xs">
+
+        <ul class="active-button">
+		  
+		    <li class="active">
+			
+			  <span class="round-btn" id="step1">1</span>
+			  
+			</li>
+			
+			 <li class="active">
+			
+			   <span class="round-btn" id="step2">2</span>
+			  
+			</li>
+			
+			 <li class="active">
+			
+			   <span class="round-btn" id="step3">3</span>
+			  
+			
+			</li>
+				
+		</ul>
+		
+    </div>
+	
+</div> 
+
+
+
+
+
+
+
+<div class="row" id="first-layout" style="padding: 90px 40px;  text-align: center; margin-top:-70px">
+				
+				
+    <div class="col-lg-12" id="numberOfAttributeTopHidden">
+   
+        <label for="numberOfAttribute">Please enter the number of attributes of training table</label>
+		
+	    <input type="number" class="form-control" id="numberOfAttributsInputField" aria-describedby="emailHelp" placeholder="number of attributes" min=1>
+							
+    </div>	
+		
+				
+    <div class="col-lg-12" id="button_SubmitNumberOfAttributsTop" style="margin-top:40px">
+
+        <div class="wrap">
+			
+            <button class="button" id="numberOfAttribusSubmitButton">Submit</button>
+				
+        </div>
+				
+    </div>		
+ 
+</div>
+
+
+<div class="row d-none" id="second-layout" >
+
+    <div class="col-lg-12">
+	
+        <div id="textFieldsForTableHeaderAttributs" style=" width: 50%;margin: 0 auto;"> </div >
+	
+    </div>
+	
+	
+    <div class="col-lg-12 col-md-5 col-sm-6 col-xs-12 text-center">
+
+		<button type="submit" class="btn btn-primary" id="attributsAddButton">submit the attributs</button>
+			  
+    </div>
+	
+
+</div>
+	
+
+
+<div class="row d-none" id="third-layout">
+
+    <div class="col-lg-4" style="margin-top:5px">
+ 
+        <div class="table-responsive">
+			
+            <table id = "table_id" class="table table-dark table-hover table-striped table-bordered" style="margin-top:10px;white-space: nowrap">
+				
+                <thead class="thead-light">
+                           
+                </thead>
+               
+		        <tbody>
+                            
+                </tbody>
+					
+                </table>
+				
+        </div>
+    </div>
+	
+	<div class="col-lg-4">
+	
+	    <div class="row">
+	
+	        <div class="col-lg-12">
+	
+        	    <div id="addTrainingExampletextFields" style=" width: 50%;margin: 0 auto;" > </div >
+		
+		    </div>
+		
+		    <div class="col-lg-4" style="float: none; margin: 0 auto;"> 
+			
+			    <button type="submit" class="btn btn-primary" id="addexampletoTableSubmitbutton" onclick="addOrEditRow(event)">Add a record</button>
+			  
+	    	</div>
+	
+	    </div>
+
+	</div>
+	
+	<div class="col-lg-4" style="margin-top:20px">
+	
+	    <div class="row">
+	        
+			<div class="col-lg-12">
+			
+	            <textarea id="versionSpace" class="form-control rounded-0" name="w3review" rows="10"   style="color: blue;" readonly="true"></textarea> 
+				
+	  	    </div>
+			
+			<div class="col-md-6 col-sm-3 col-xs-3"><!--Start of the second column of the first row of the third column of the first row-->
+		 
+	            <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="getcompleteVersionSpace(event);">
+					
+                   Version space
+						
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade autoModal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					
+                    <div class="modal-dialog   " role="document" id="modeldia">
+						
+                        <div class="modal-content" id="modelContentID">
+							
+                            <div class="modal-header">
+								
+                                <h5 class="modal-title" id="exampleModalLongTitle">Version Space</h5>
+									
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									
+                                    <span aria-hidden="true">&times;</span>
+										
+                                </button>
+									
+                            </div>
+								
+                            <div class="modal-body" id="modelBodyElement">
+								
+                                  
+                            </div>
+								
+                            <div class="modal-footer">
+								 
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								
+                            </div>
+								
+                        </div>
+							
+                    </div>
+						
+                </div>
+					
+	        </div> 
+			
+			
+
+            <div class="col-md-6 col-sm-3 col-xs-3"><!--Start of the second column of the first row of the third column of the first row-->
+		 
+	            <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" id="testExampleIDD" data-toggle="modal" data-target="#exampleModalCenter2" onclick="addTextFieldsToMmodel(event);">
+					
+                    Test an example 
+						
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade autoModal" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					
+                    <div class="modal-dialog" role="document" id="modeldia">
+						
+                        <div class="modal-content" id="modelContentID">
+							
+                            <div class="modal-header">
+								
+                                <h5 class="modal-title" id="exampleModalLongTitle2">Test an example</h5>
+									
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									
+                                    <span aria-hidden="true">&times;</span>
+										
+                                </button>
+									
+                            </div>
+								
+                            <div class="modal-body" id="modelBodyElement2">
+													  
+								<div id="addTrainingExampletextFieldstoModel" style=" width: 50%;margin: 0 auto;" > </div >
+								
+		    					<button type="button" id="testExampleButton" class="btn btn-secondary" style="margin:auto; display:block;" onclick="getTestExample(event)">Test</button>
+								   
+                            </div>
+								
+                            <div class="modal-footer">
+								 
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								
+                            </div>
+								
+                        </div>
+							
+                    </div>
+						
+                </div>
+					
+	        </div>  			
+		        
+		</div>
+		
+	</div>
+	
+	
+
+
+
+
+</div>
+
+
+ 
+       
+<div id="modalAlertMessageID" class="modal">
+
+
+    <!-- Modal content -->
+    <div class="modal-content" id="modalAlertMessageContentID" >
+	
+        <span class="close" id="closeAlertMessage">&times;</span>
+		
+        <p id="alert_message_id"></p>
+		
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript" src="../javascript/boundaries.js"></script> 	
+<script type="text/javascript" src="../javascript/impInterface.js"></script> 
+<script type="text/javascript" src="../javascript/CompleteVersionSpace.js"></script> 	
+<script type="text/javascript" src="../javascript/testExample.js"></script>	
+	     
+
+</body>	
+
+
+</html>	

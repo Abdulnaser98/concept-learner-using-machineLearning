@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Import csv file with jquery</title>
+        <meta charset="utf-8" />
+       
+		
+		
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">	 
+	
+   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+   
+  
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+   <link rel="stylesheet" href="../css/versionspacewithCSV.css">
+	
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
+	
+    </head>
+
+    <body>
+	  
+	  
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">  
+	
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+       <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="pdfViewer/pdfViewerHtml.html">Concept Learning</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="#">Help</a>
+            </li>
+			<li class="nav-item">
+               <a class="nav-link" href="gallery.html">Gallery</a>
+            </li>
+			<li class="nav-item">
+               <a class="nav-link" href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+	
+    </nav>
+	
+	   <div class="row">
+	
+	
+        <div class="form-group col-lg-4 col-md-5 col-sm-6 col-xs-12" style=" border: 3px solid; ">
+		
+		
+		   
+		    <div class="row">
+			       
+				
+				<div id="inputfileorig" class="col-md-12" >
+				
+			
+					
+	                <input type="file" id="inputfile"  class="btn btn-primary"  value="Browse"  style="margin-top:10px; width:250px; "  />
+				   
+     	        </div>
+				
+				<div id="viewfileorig" class="col-md-12" >
+				
+	               <input type="button" id="viewfile"  value="Import file" class="btn btn-primary"  style="margin-top:10px;"/>
+				   
+     	        </div>
+				
+				
+				
+				<div class="col-md-12 d-none" id="create_boundaries_hiddenButton" >
+				
+	               <input type="button"   value="create boundaries" class="btn btn-primary"  style="margin-top:10px;" onclick="showTableData();"/>
+				   
+     	        </div>
+				
+				
+				
+		
+	        </div> 
+				
+				
+		</div> <!-- End the first Column-->
+		
+		
+	   
+	    <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12"></div>
+		
+		
+		<div class="col-lg-4 col-md-3 col-sm-6 col-xs-12">
+		
+		    <div class="row">
+		
+		        <div class="table-responsive col-lg-12">
+			
+                    <table id = "table_id" class="table table-sm table-striped table-bordered " style="margin-top:10px;">
+				
+                        <thead class="thead-light">
+                           
+                        </thead>
+                
+				        <tbody>
+                            
+                        </tbody>
+					
+                    </table>
+				
+                </div>
+			
+			    <div class="col-md-12"><!--Start of the second column of the first row of the third column of the first row-->
+		
+                    <label for="exampleFormControlTextarea1">Large textarea</label>
+                    <textarea class="form-control rounded-0" id="versionSpace" rows="10" style="color: blue;" readonly></textarea>
+        
+		        </div><!--End of the second column of the first row of the third column of the first row-->
+				
+			     
+				<div class="col-md-12"><!--Start of the second column of the first row of the third column of the first row-->
+		 
+					<!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="getcompleteVersionSpace(event)"; >
+					
+                       create version space
+						
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade autoModal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					
+                        <div class="modal-dialog   " role="document" id="modeldia">
+						
+                            <div class="modal-content" id="modelContentID">
+							
+                                <div class="modal-header">
+								
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Version Space</h5>
+									
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									
+                                        <span aria-hidden="true">&times;</span>
+										
+                                    </button>
+									
+                                </div>
+								
+                                <div class="modal-body" id="modelBodyElement">
+								
+                                  
+                                </div>
+								
+                                <div class="modal-footer">
+								 
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								
+                                </div>
+								
+                            </div>
+							
+                        </div>
+						
+                    </div>
+					
+		        </div>
+			
+			
+			</div>
+			
+		</div> <!--End the third column -->
+		
+		
+		
+		
+		
+		
+	
+	</div> <!-- End the first row -->
+	
+      
+	  
+	  
+      ´
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/boundaries.js"></script> 
+	<script type="text/javascript" src="../js/CompleteVersionSpace.js"></script> 
+	
+	
+
+    <script>
+        $( document ).ready(function() {
+
+            $('#viewfile').click(function () {
+                var rdr = new FileReader();
+                rdr.onload = function (e) {
+                  //get the rows into an array
+                  var therows = e.target.result.split("\n");
+                  //loop through the rows
+                  for (var row = 0; row < therows.length; row++  ) {
+                    //build a new table row
+                    var newrow = "";
+                    //get the columns into an array
+                    var columns = therows[row].split(",");
+                    //get number of columns
+                    var colcount= columns.length;
+					if( colcount > 0){
+                        newrow += "<tr><td>" +columns[0];					
+					    for(var col = 1; col < colcount; col++){
+                           newrow +="</td><td>" + columns[col]; 
+						}
+						newrow +="</td></tr>";
+					}
+					 $('#table_id').append(newrow);   
+                                      
+                  }
+				  
+                      
+                }
+                rdr.readAsText($("#inputfile")[0].files[0]);
+            });
+			
+			
+        });
+		
+		
+		//Gets the data of the training esamples's table and then calls the createBoundaries function.
+	function showTableData() {
+		
+		var myTab = document.getElementById('table_id');
+		var trainingData = [];
+		var labeles = [];
+		
+
+
+		// LOOP THROUGH EACH ROW OF THE TABLE AFTER HEADER.
+		for (i = 0; i < myTab.rows.length; i++) {
+			
+		
+			var array = [];
+
+			// GET THE CELLS COLLECTION OF THE CURRENT ROW.
+			var objCells = myTab.rows.item(i).cells;
+
+			// LOOP THROUGH EACH CELL OF THE CURENT ROW TO READ CELL VALUES.
+			for (var j = 0; j < (objCells.length)-1; j++) {
+				
+				array.push(objCells.item(j).innerHTML);
+				
+			}
+			
+			if( i == (myTab.rows.length)-1 ){
+			
+			    var str1 = objCells.item((objCells.length)-1).innerHTML;			
+			    labeles.push(str1);
+			
+			}
+			
+			
+			var str = objCells.item((objCells.length)-1).innerHTML;
+			str = str.substring(0, str.length-1);			
+			labeles.push(str);
+		
+			console.log(objCells.item((objCells.length)-1).innerHTML);
+			trainingData.push(array);
+			
+		}
+		
+
+		
+		createBoundaries(trainingData,labeles);
+
+	}
+		
+	    
+	$("#viewfile").click(function() {
+		
+		$("#create_boundaries_hiddenButton").removeClass("d-none");
+		
+		
+	});	
+		
+		
+	
+    $(document).ready(function() {
+		
+         $("#versionSpace").val('');
+		 
+	});
+
+	
+		
+		
+    </script>
+	
+	
+  
+     
+    </body>
+	
+</html>
